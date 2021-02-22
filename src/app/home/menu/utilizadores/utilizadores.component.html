@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="content">
+    <h1> Utilizadores 
+        <span class="float-right">
+            <button mat-raised-button color="primary" [routerLink]="['/utilizadores/novo']"> Adicionar Utilizador </button>
+        </span>
+    </h1>
+
+    <hr> 
+    <br>
+
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover" *ngIf="utilizadores$ | async as utilizadores; else loading">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Utilizador</th>
+                        <th>E-mail</th>
+                        <th>Password</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let utilizador of utilizadores">
+                        <td>{{ utilizador.id }}</td>
+                        <td>{{ utilizador.nome }}</td>
+                        <td>{{ utilizador.email }}</td>
+                        <td>{{ utilizador.password }}</td>
+                        <td>
+                            <span class="float-right">
+                                <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit(utilizador.id)">
+                                    Atualizar
+                                </button>
+                                {{ ' ' }}
+                                <button class="btn btn-outline-danger mb-1 btn-sm" (click)="onDelete(utilizador)">
+                                    Remover
+                                </button>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ng-template #loading>
+                <span> A carregar dados... </span>
+            </ng-template>
+        </div>
+    </div>
+</div> 

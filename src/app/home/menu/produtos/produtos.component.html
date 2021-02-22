@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="content">
+    <h1> Produtos 
+        <span class="float-right">
+            <button mat-raised-button color="primary" [routerLink]="['/produtos/novo']"> Adicionar Produto </button>
+        </span>
+    </h1>
+
+    <hr> 
+    <br>
+
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover" *ngIf="produtos$ | async as produtos; else loading">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Produto</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let produto of produtos">
+                        <td>{{ produto.id }}</td>
+                        <td>{{ produto.produto }}</td>
+                        <td>{{ produto.descricao }}</td>
+                        <td>{{ produto.preco }}</td>
+                        <td>{{ produto.quantidade }}</td>
+                        <td>
+                            <span class="float-right">
+                                <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit(produto.id)">
+                                    Atualizar
+                                </button>
+                                {{ ' ' }}
+                                <button class="btn btn-outline-danger mb-1 btn-sm" (click)="onDelete(produto)">
+                                    Remover
+                                </button>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ng-template #loading>
+                <span> A carregar dados... </span>
+            </ng-template>
+        </div>
+    </div>
+</div> 
+
+

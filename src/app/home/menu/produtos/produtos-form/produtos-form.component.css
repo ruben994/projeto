@@ -1,0 +1,13 @@
+.needed {
+    color: red;
+}
+
+.success {
+    color: green;
+    margin-left: 30px;
+}
+
+.invalid {
+    color: rgb(255, 0, 0);
+    margin-left: 30px;
+}

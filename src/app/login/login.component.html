@@ -1,0 +1,65 @@
+<div class="cobertura">
+    <div class="main"> 
+    <div class="login">
+            <h1> Login </h1>
+            <br>
+            <hr>
+            <br> <br> <br>
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="example-form">
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>E-mail</mat-label>
+                    <input 
+                        matInput 
+                        name="email"
+                        placeholder="Ex. user@email.com" 
+                        [(ngModel)]="utilizador.email"
+                        #email="ngModel"
+                        required
+                        email
+                    >
+                    
+                </mat-form-field>
+
+                <mat-form-field  appearance="fill" class="example-full-width">
+                    <mat-label>Palavra-passe</mat-label>
+                    <input 
+                    matInput 
+                    name="password"
+                    [type]="hide ? 'password' : 'text'" 
+                    [(ngModel)]="utilizador.password"
+                    #password="ngModel"
+                    required
+                >
+                    <button mat-icon-button 
+                        matSuffix 
+                        (click)="hide = !hide" 
+                        [attr.aria-label]="'Hide password'" 
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <br> <br> 
+
+                <div class="buttons">
+                    <button 
+                        type="submit"
+                        [disabled]="!email.valid || (password.value == null || password.value == '')"  
+                        [class.active]="email.valid && (password.value != null && password.value != '')"  
+                        mat-button 
+                        class="submit">Entrar
+                    </button>
+
+                    <button 
+                        type="reset"
+                        [disabled]="(password.value == null || password.value == '') && (email.value == null || email.value == '')"  
+                        [class.active]="(password.value != null && password.value != '') || (email.value != null && email.value != '')"  
+                        mat-button 
+                        class="reset"
+                        > Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

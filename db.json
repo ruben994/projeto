@@ -1,0 +1,26 @@
+{
+  "produtos": [
+    {
+      "id": 2,
+      "produto": "Lápis",
+      "descricao": "Material de escrita",
+      "preco": 2,
+      "quantidade": 2
+    },
+    {
+      "produto": "Camisola",
+      "descricao": "Camisola de lã verde",
+      "preco": 15,
+      "quantidade": 1,
+      "id": 3
+    },
+    {
+      "produto": "DVD",
+      "descricao": "DVD com 2GB",
+      "preco": 5,
+      "quantidade": 1,
+      "id": 4
+    }
+  ],
+  "utilizadores": []
+}

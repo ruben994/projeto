@@ -1,0 +1,15 @@
+<div class="navbarr">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <span>Projeto</span>
+            <span class="example-spacer"></span>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/utilizadores']"> Utilizadores </button>
+                <button mat-menu-item [routerLink]="['/produtos']"> Produtos </button>
+            </mat-menu>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>

@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="content">
+    <h1> Adicionar/Atualizar Produto </h1>
+    <hr>
+    <br>
+    <form class="row g-3 needs-validation" novalidate [formGroup]="form">
+        <div class="col-md-4">
+          <label for="produto" class="form-label">Nome do Produto <span class="needed">*</span></label>
+          <input [class.is-invalid]="submitted && hasError('produto')" type="text" class="form-control" id="produto" formControlName="produto" required>
+          <div class="invalid-feedback" *ngIf="hasError('produto')">
+            Campo inválido.
+          </div>
+        </div>
+        <div class="col-md-4">
+            <label for="descricao" class="form-label">Descrição</label>
+            <input [class.is-invalid]="submitted && hasError('descricao')" type="text" class="form-control" id="descricao" formControlName="descricao">
+            <div class="invalid-feedback" *ngIf="hasError('descricao')">
+                Campo inválido.
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="preco" class="form-label">Preço <span class="needed">*</span></label>
+            <input [class.is-invalid]="submitted && hasError('preco')" type="number" class="form-control" id="preco" formControlName="preco" required>
+            <div class="invalid-feedback" *ngIf="hasError('preco')">
+                Campo inválido.
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="quantidade" class="form-label">Quantidade <span class="needed">*</span></label>
+            <input [class.is-invalid]="submitted && hasError('quantidade')" type="number" class="form-control" id="quantidade" formControlName="quantidade" required>
+            <div class="invalid-feedback" *ngIf="hasError('quantidade')">
+              Campo inválido.
+            </div>
+        </div>
+        <div class="col-md-12"> {{ ' ' }} </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit" (click)="onSubmit()">Salvar</button>
+            <button style="margin-left: 10px; background: red; color: white" class="btn" type="reset" (click)="onCancel()">Cancelar</button>
+            <span class="success" *ngIf="check">
+                Sucesso!
+            </span>
+            <span class="invalid" *ngIf="!form.valid && submitted && !problem">
+                Dados inválidos!
+            </span>
+            <span class="invalid" *ngIf="problem">
+                Houve um problema no envio, tente novamente!
+            </span>
+        </div>
+    </form>
+</div>
